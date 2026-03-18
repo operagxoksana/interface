@@ -28,6 +28,7 @@ import { useModalContext } from 'src/hooks/useModal';
 import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
 import { useRootStore } from 'src/store/root';
 import { getNetworkConfig } from 'src/utils/marketsAndNetworksConfig';
+import { replaceUnderscoresWithSpaces } from 'src/utils/utils';
 import { useShallow } from 'zustand/shallow';
 
 import { TxErrorView } from '../FlowCommons/Error';
@@ -360,7 +361,7 @@ export const EmodeModalContent = ({ user }: { user: ExtendedFormattedUser }) => 
                           sx={{ opacity: emode.available ? 1 : 0.5 }}
                           fontStyle={emode.available ? 'normal' : 'italic'}
                         >
-                          {emode.label}
+                          {replaceUnderscoresWithSpaces(emode.label)}
                         </Typography>
                         {emode.id === user.userEmodeCategoryId && (
                           <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
